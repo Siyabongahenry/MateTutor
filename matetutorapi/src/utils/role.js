@@ -1,8 +1,8 @@
-const Role = ({
-    Manager:"Manager",
-    Admin:"Admin",
-    Tutor:"Tutor",
-    User:"User"
+const role = ({
+    manager:"manager",
+    admin:"admin",
+    tutor:"tutor",
+    user:"user"
 });
 
-module.exports = Role;
+module.exports = role;

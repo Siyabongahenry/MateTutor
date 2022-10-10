@@ -10,7 +10,7 @@ const BookingSchema = new Schema(
             ref:"User",
             required:true
         },
-        tutorId:{
+        courseId:{
             type:Schema.Types.ObjectId,
             ref:"Tutor",
             required:true
@@ -33,10 +33,7 @@ const BookingSchema = new Schema(
             type:Boolean,
             default:false
         },
-        ratings:{
-            type:Number,
-            default:0
-        }
+        rating:[]
     }
 );
 module.exports = mongoose.model("Booking",BookingSchema,"Bookings");

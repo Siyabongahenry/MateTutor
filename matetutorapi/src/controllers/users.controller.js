@@ -23,7 +23,8 @@ exports.register_user = async (req,res)=>{
         lastName:lastName,
         cellNo:cellNo,
         email:email.toLowerCase(),
-        password:encryptedPassword
+        password:encryptedPassword,
+        roles:["user"]
     });
     
     new_user.save((error)=>{
@@ -49,9 +50,9 @@ exports.login_user = async (req,res)=>{
 
         if(!(user && (await bcrypt.compare(password,user.password)) )) return res.status(400).send({error:"User not registered"});
             
-        const token = jwt.sign({id:user._id,email:user.email},process.env.TOKEN_KEY,{expiresIn:"2h"});
+        const token = jwt.sign({id:user._id,email:user.email,roles:user.roles},process.env.TOKEN_KEY,{expiresIn:"2h"});
 
-        res.status(200).send({token});
+        res.status(200).send({email:user.email,token,roles:user.roles});
     }
     catch(error)
     {
@@ -59,3 +60,28 @@ exports.login_user = async (req,res)=>{
     }
 }
 
+exports.getUser = async (req,res)=>{
+    try
+    {
+
+    
+        const userId = req.user.id;
+
+        const user = await User.findById(userId).select("-_id -password -__v");
+
+        if(user)
+        {
+            res.status(200).send(user);
+        }
+        else
+        {
+            res.sendStatus(404);
+        }
+    }
+    catch
+    {
+        res.sendStatus(500);
+    }
+
+
+}

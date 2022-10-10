@@ -8,22 +8,19 @@ const TutorSchema = new Schema({
         required:true,
         unique:true
     },
-    profileImage:{
+    profileImg:{
         type:String,
         required:true
     },
-    bankDetails:{
-        bankName:{
-            type:String,
-            required:true
-        },
-        accountNumber:{
-            type:Number,
-            required:true
-        },
-        branchCode:Number
+    bankName:{
+        type:String,
+        required:true
     },
-
+    accountNumber:{
+        type:Number,
+        required:true
+    },
+    branchCode:Number,
     schedule:[
         {
             day:{

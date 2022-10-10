@@ -7,9 +7,16 @@ module.exports = function(req,res,next){
     if(!token) res.sendStatus(401);
 
     jwt.verify(token,process.env.TOKEN_KEY,(error,user)=>{
-        if(error) res.sendStatus(403);
-        req.user = user;
-        next();
+        if(error) 
+        {
+            res.sendStatus(403);
+        }
+        else
+        {
+            req.user = user;
+            next();
+        }
+
     });
       
 }

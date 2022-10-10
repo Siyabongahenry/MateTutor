@@ -2,38 +2,58 @@ const User = require("../models/user");
 const Tutor = require("../models/tutor");
 const Course = require("../models/course");
 const Booking = require("../models/booking");
-const { findOne } = require("../models/user");
+const role = require("../utils/role");
 
 exports.register = async (req,res) =>{
+
+    console.log(req.file);
+   
+
     const user = req.user;
     
     const  tutorExist = await Tutor.findOne({tutorId:user.id});
 
     if(tutorExist) return res.sendStatus(409);
 
-    const {profileImage,description,bankDetails} = req.body;
+    const {description,bankName, accountNumber,branchCode} = req.body;
 
-    if(!(profileImage && bankDetails && description)) res.sendStatus(400);
+    const profileImg = req.file.filename;
+
+    if(!(description && bankName &&  accountNumber && profileImg)) res.sendStatus(400);
 
     const tutor = new Tutor({
         user:user.id,
-        profileImage,
+        profileImg,
         description,
-        bankDetails
+        bankName,
+        accountNumber,
+        branchCode
     });
 
     tutor.save((error)=>{
        if(error)
        {
-        console.log(error);
+            res.sendStatus(500);
        }
        else
        {
-        console.log("The tutor has beed added successfuly.");
+            //grant user a tutor role
+            User.updateOne({_id:user.id},{$push:{roles:role.tutor }},(error,success)=>{
+                if(error)
+                {
+                    console.log("error")
+                }
+                else
+                {
+                    console.log("success");
+                }
+
+            });
+
+             res.status(201).send({role:"tutor"});
        }
     });
 
-    res.send({tutor});
 }
 exports.updateBankDetails=async (req,res)=>{
 
@@ -47,7 +67,11 @@ exports.updateBankDetails=async (req,res)=>{
 
     try
     {
+        //grant user a tutor role
         const tutor = await Tutor.findOneAndUpdate({userId:user.id},{bankDetails});
+
+        if(tutor === null) throw "Not found";
+
         res.sendStatus(201);
     }
     catch(error)
@@ -139,6 +163,7 @@ exports.getCurrentTutor = async (req,res)=>{
 
     
 }
+
 
 exports.getCourses =async (req,res)=>{
     const user = req.user;
