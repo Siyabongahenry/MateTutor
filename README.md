@@ -10,3 +10,5 @@ ODM: Mongoose<br/><br/>
 Front-end Technologies:<br/>
 Reactjs,<br/>
 Bootstrap<br/>
+
+##Snapshot of the project
