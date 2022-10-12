@@ -7,6 +7,6 @@ framework:ExpressJS,<br/>
 Database: Mongodb,<br/>
 ODM: Mongoose<br/><br/>
 
-Front-end technologies:<br/>
+Front-end Technologies:<br/>
 Reactjs,<br/>
 Bootstrap<br/>
