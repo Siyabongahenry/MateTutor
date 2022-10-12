@@ -11,4 +11,4 @@ Front-end Technologies:<br/>
 Reactjs,<br/>
 Bootstrap<br/>
 
-**Snapshot of the project
+**Snapshot of the project**
