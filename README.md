@@ -11,7 +11,7 @@ Front-end Technologies:<br/>
 Reactjs,<br/>
 Bootstrap<br/>
 
-**Snapshot of the project**
+**Snapshot of the project**<br/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i1.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i2.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i3.png"/>
