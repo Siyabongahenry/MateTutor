@@ -12,7 +12,7 @@ exports.register_user = async (req,res)=>{
         res.sendStatus(400);
     }
 
-    const userExist =await User.findOne({email});
+    const userExist =await User.exists({email});
 
     if(userExist) return res.sendStatus(409);
 

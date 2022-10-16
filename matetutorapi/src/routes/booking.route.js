@@ -4,8 +4,10 @@ const checkAuth = require("../middlewares/checkAuth.middleware");
 
 const router = express.Router();
 
-const booking_controller = require("../models/booking");
+const booking_controller = require("../controllers/booking.controller");
 
-router.get("/bookings",checkAuth,booking_controller.bookings);
+router.get("/",checkAuth,booking_controller.getTuteeBookings);
 router.post("/create",checkAuth,booking_controller.create);
 router.post("/remove",checkAuth,booking_controller.remove);
+
+module.exports = router;

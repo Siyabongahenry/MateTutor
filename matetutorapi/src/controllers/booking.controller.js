@@ -1,30 +1,67 @@
 const Booking = require("../models/booking");
 
-const bookings=(req,res)=>{
+exports.create = async (req,res)=>{
 
-}
-const create = (req,res)=>{
+      const{courseId,bookedDate,startTime,duration,location,focusTopics,ratingsPerHour} = req.body;
 
-      const {courseId,bookedDate,startTime,duration,address,focusTopics} = req.body;
+      if(!(courseId && bookedDate && startTime && duration && location && focusTopics)) return res.sendStatus(400);
 
-      const user = user.id;
+      const bookingExist = await Booking.exists({bookedDate,startTime});
 
-      const booking = new Booking({
-            courseId,
+      if(bookingExist) return res.sendStatus(409);
+
+      const user = req.user;
+
+      const newBooking = new Booking({
+            tutee:user.id,
+            course:courseId,
+            bookedDate,
             startTime,
+            totalCost:duration*ratingsPerHour,
             duration,
-            address,
-            focusTopics
+            focusTopics,
+            location
+      });
+      
+      newBooking.save((error)=>{
+            if(error)
+            {
+                  console.log(error);
+                  res.sendStatus(500);
+            }
+            else
+            {
+                  res.sendStatus(201);
+            }
       });
       
 }
 
-const update = (req,res)=>{
+exports.getTuteeBookings = async (req,res)=>{
       
+      const userId = req.user.id;
+
+      
+      try
+      {
+            const bookings =await Booking.find({tutee:userId})
+                        .populate({
+                              path:"course",
+                              select:["name","ratingsPerHour"]
+                        });
+
+
+            if(bookings) return res.status(200).send(bookings);
+
+             return res.sendStatus(404);
+      }
+      catch(error){
+            console.log(error);
+
+            return res.sendStatus(500);
+      }
 }
 
-const remove = (req,res)=>{
+exports.remove = (req,res)=>{
       
 }
-
-

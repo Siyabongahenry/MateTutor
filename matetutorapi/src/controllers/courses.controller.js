@@ -5,7 +5,11 @@ const Tutor = require("../models/tutor");
 //get all courses
 exports.listAll = async (req,res)=>{
     try{
-        const courses = await Course.find().select("_id name ratingsPerHour");
+        
+        const courses = await Course.find()
+                            .select("_id name ratingsPerHour")
+                            .limit(10);
+
         res.status(200).send(courses);
 
     }
@@ -29,8 +33,6 @@ exports.details = async (req,res)=>{
         path:"user",
         select:["firstName","lastName","email"]
     });
-
-    console.log({tutor,course});
 
     res.status(200).send({course,tutor});
 }
@@ -59,9 +61,8 @@ exports.create = async (req,res)=>{
         {
              res.sendStatus(500);
         }
-        else{
-            const{tutorId,...courseWithoutTutorId} = course.toObject();   
-            res.status(201).send(courseWithoutTutorId);
+        else{  
+            res.status(201).send(result);
         }  
     });
 }

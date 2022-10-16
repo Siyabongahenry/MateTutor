@@ -4,6 +4,7 @@ const cors = require("cors");
 const usersRouter = require("./src/routes/users.route");
 const tutorRouter = require("./src/routes/tutor.route");
 const coursesRouter = require("./src/routes/courses.route");
+const bookingRouter = require("./src/routes/booking.route");
 
 require("dotenv").config();
 require("./src/configs/database").connect();
@@ -19,7 +20,7 @@ app.use(express.urlencoded({extend:false}))
 app.use("/users",usersRouter);
 app.use("/tutor",tutorRouter);
 app.use("/courses",coursesRouter);
-
+app.use("/booking",bookingRouter);
 
 const {API_PORT} = process.env;
 

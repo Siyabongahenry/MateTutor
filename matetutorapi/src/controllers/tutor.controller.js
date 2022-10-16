@@ -11,7 +11,7 @@ exports.register = async (req,res) =>{
 
     const user = req.user;
     
-    const  tutorExist = await Tutor.findOne({tutorId:user.id});
+    const  tutorExist = await Tutor.exists({tutorId:user.id});
 
     if(tutorExist) return res.sendStatus(409);
 

@@ -16,14 +16,14 @@ const CourseSchema = new Schema ({
         type:String,
         default:"None"
     },
-    publicNotes:[String],
-    privateNotes:[String],
+    publicNoteFiles:[String],
+    privateNoteFiles:[String],
     tutor:{
         type:Schema.Types.ObjectId,
         ref:"Tutor",
         required:true
-    }
-
+    },
+    discount:[Number]
 });
 
 module.exports = mongoose.model("Course",CourseSchema,"Courses");

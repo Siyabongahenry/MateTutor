@@ -4,15 +4,14 @@ const Schema = mongoose.Schema;
 
 const BookingSchema = new Schema(
     {
-        courseName:String,
-        tuteeId:{
+        tutee:{
             type:Schema.Types.ObjectId,
             ref:"User",
             required:true
         },
-        courseId:{
+        course:{
             type:Schema.Types.ObjectId,
-            ref:"Tutor",
+            ref:"Course",
             required:true
         },
         date:Date,
@@ -20,9 +19,9 @@ const BookingSchema = new Schema(
         startTime:String,
         duration:Number,
         totalCost:Number,
-        address:{
+        location:{
             type:String,
-            enum:["Microsoft teams","Zoom","Google Meetings","Other"]
+            enum:["Microsoft Teams","Zoom Call","Google Meetings","On Campus"]
         },
         focusTopics:[String],
         completed:{
