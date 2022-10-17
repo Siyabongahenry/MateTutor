@@ -14,11 +14,11 @@ Front-end Technologies:<br/>
 Reactjs,<br/>
 Bootstrap<br/>
 
-**Snapshot of the project**<br/>
+<h2>Snapshot of the project</h2>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i1.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i2.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i3.png"/>
-**Dashboard or profile**<be/>
+  <h2>Dashboard or profile</h2>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i4.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i5.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i6.png"/>
