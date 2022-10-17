@@ -18,7 +18,7 @@ Bootstrap<br/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i1.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i2.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i3.png"/>
-**Tutor profile**
+**Dashboard or profile**<be/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i4.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i5.png"/>
 <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i6.png"/>
