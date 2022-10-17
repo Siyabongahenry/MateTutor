@@ -14,15 +14,19 @@ Front-end Technologies:<br/>
 Reactjs,<br/>
 Bootstrap<br/>
 
-<h2>Snapshot of the project</h2>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i1.png"/>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i2.png"/>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i3.png"/>
-  <h2>Tutor dashboard or profile</h2>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i4.png"/>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i5.png"/>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i6.png"/>
-<img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i7.png"/>
+<h2>Home page, Deyails page and Tracking page</h2>
+<p align="center">
+  <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i1.png"/>
+  <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i2.png"/>
+  <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i3.png"/>
+ </p>
+ <h2>Tutor dashboard or profile</h2>
+ <p align="center">
+    <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i4.png"/>
+    <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i5.png"/>
+    <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i6.png"/>
+    <img src="https://github.com/Siyabongahenry/Project-Images/blob/main/MateTutor/i7.png"/>
+  </p>
 
 
 
