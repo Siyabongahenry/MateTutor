@@ -6,6 +6,7 @@ const CourseSchema = new Schema ({
         type:String,
         required:true
     },
+    tutoredBy:String,
     ratingsPerHour:
     {
         type:Number,

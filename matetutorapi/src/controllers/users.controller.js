@@ -50,7 +50,10 @@ exports.login_user = async (req,res)=>{
 
         if(!(user && (await bcrypt.compare(password,user.password)) )) return res.status(400).send({error:"User not registered"});
             
-        const token = jwt.sign({id:user._id,email:user.email,roles:user.roles},process.env.TOKEN_KEY,{expiresIn:"2h"});
+        const token = jwt.sign({id:user._id,
+            fullNames:user.firstName+" "+user.lastName
+            ,email:user.email,roles:user.roles
+        },process.env.TOKEN_KEY,{expiresIn:"2h"});
 
         res.status(200).send({email:user.email,token,roles:user.roles});
     }

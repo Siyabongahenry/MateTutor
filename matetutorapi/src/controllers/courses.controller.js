@@ -5,10 +5,18 @@ const Tutor = require("../models/tutor");
 //get all courses
 exports.listAll = async (req,res)=>{
     try{
-        
-        const courses = await Course.find()
-                            .select("_id name ratingsPerHour")
-                            .limit(10);
+
+        const query = req.query;
+
+        const searchReg = new RegExp(query.search,"i");
+
+        //if search string is not null, find courses that matches the string
+        const courses = await Course.find(query.search?{
+            name:{$regex:searchReg}
+        }:{})
+        .select("_id name ratingsPerHour")
+        .skip(query.skip)
+        .limit(10);
 
         res.status(200).send(courses);
 
@@ -51,6 +59,7 @@ exports.create = async (req,res)=>{
 
     const course = new Course({
         name,
+        tutoredBy:user.fullNames,
         ratingsPerHour,
         moduleCode,
         tutor:user.id

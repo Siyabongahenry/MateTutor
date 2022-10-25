@@ -17,10 +17,10 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(express.json());
 app.use(express.urlencoded({extend:false}))
 
-app.use("/users",usersRouter);
-app.use("/tutor",tutorRouter);
-app.use("/courses",coursesRouter);
-app.use("/booking",bookingRouter);
+app.use("/api/users",usersRouter);
+app.use("/api/tutor",tutorRouter);
+app.use("/api/courses",coursesRouter);
+app.use("/api/booking",bookingRouter);
 
 const {API_PORT} = process.env;
 
