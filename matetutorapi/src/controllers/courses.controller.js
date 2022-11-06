@@ -19,6 +19,7 @@ exports.listAll = async (req,res)=>{
         .limit(6);
 
         res.status(200).send(courses);
+
     }
     catch(error)
     {
@@ -106,6 +107,7 @@ exports.remove= async (req,res)=>{
     await Course.deleteOne({_id});
 
     res.sendStatus(200);
+
 }
 
 exports.uploadNotes = async (req,res)=>{
@@ -132,4 +134,5 @@ exports.uploadNotes = async (req,res)=>{
     await Course.updateOne({_id:courseId},{$push:{notes:note}});
     
     res.sendStatus(204);
+
 }

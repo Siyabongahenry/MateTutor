@@ -17,12 +17,14 @@ const CourseSchema = new Schema ({
         type:String,
         default:"None"
     },
+
     tutor:{
         type:Schema.Types.ObjectId,
         ref:"Tutor",
         required:true
     },
     discount:Number
+
 });
 
 module.exports = mongoose.model("Course",CourseSchema,"Courses");

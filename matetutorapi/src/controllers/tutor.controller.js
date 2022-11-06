@@ -1,6 +1,9 @@
 const User = require("../models/user");
 const Tutor = require("../models/tutor");
 const Course = require("../models/course");
+
+const Booking = require("../models/booking");
+
 const role = require("../utils/role");
 
 exports.register = async (req,res) =>{
@@ -86,6 +89,7 @@ exports.updateSchedule = async (req,res)=>{
 
     if(!reqDaySchedule) return res.sendStatus(400);
 
+
     const user = req.user;
     
     try
@@ -166,7 +170,7 @@ exports.getCurrentTutor = async (req,res)=>{
 
 exports.getCourses =async (req,res)=>{
     const user = req.user;
-    
+
     try
     {
     
@@ -175,6 +179,7 @@ exports.getCourses =async (req,res)=>{
         .select("name moduleCode ratingsPerHour");
 
         if(!findCourses) return res.sendStatus(404);
+
         res.status(200).send(findCourses);
     }
     catch(error)

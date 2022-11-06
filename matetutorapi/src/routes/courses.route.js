@@ -12,5 +12,4 @@ router.post("/create",checkAuth,courses_controller.create);
 router.post("/update",checkAuth,courses_controller.update);
 router.post("/remove",checkAuth,courses_controller.remove);
 
-
 module.exports = router;

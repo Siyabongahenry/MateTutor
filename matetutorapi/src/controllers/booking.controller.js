@@ -40,7 +40,7 @@ exports.create = async (req,res)=>{
 exports.getTuteeBookings = async (req,res)=>{
       
       const userId = req.user.id;
-      
+          
       try
       {
             const bookings =await Booking.find({tutee:userId})
