@@ -180,13 +180,12 @@ exports.getTutorById = async (req,res)=>{
  
    try
    {
-       const tutor = await Tutor.findOne({user:tutorId})
+       const tutor = await Tutor.findOne({_id:tutorId})
                     .select("-bankDetails -_id")
                     .populate({
                         path:"user",
                         select:["firstName","lastName","cellNo","email"]
                     });
-
 
        if(tutor) return res.status(200).send(tutor);
       

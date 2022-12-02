@@ -14,9 +14,10 @@ exports.getNotes = async (req,res)=>{
 }
 
 exports.updateOrCreate = async (req,res)=>{
-    const{noteId,courseId,courseName,header,description,youtubeLinks,googleDriveLinks} = req.body;
+    const{_id,courseId,courseName,header,description,youtubeLinks,googleDriveLinks} = req.body;
 
-    if(!(noteId || courseId)) return res.sendStatus(400);
+    //check if course id or note _id exist
+    if(!(_id || courseId)) return res.sendStatus(400);
     
     if(!(header && description)) return res.sendStatus(400);
 
@@ -27,10 +28,11 @@ exports.updateOrCreate = async (req,res)=>{
         googleDriveLinks
     };
 
-    if(noteId)
+    //Updating a note if already exist in database
+    if(_id)
     {
         
-        await Notes.updateOne({_id:noteId},noteObj);
+        await Notes.updateOne({_id},noteObj);
 
         return res.sendStatus(200);
     }
@@ -38,13 +40,7 @@ exports.updateOrCreate = async (req,res)=>{
     //to create new note the course ID and Name is needed
     noteObj ={courseId,courseName,...noteObj}
 
-    await create(noteObj);
-    
-}
-
-const create = async (noteObj)=>{
-
-    const courseExist = await Notes.exists({_id:noteObj.courseId});
+    const courseExist = await Course.exists({_id:noteObj.courseId});
 
     if(!courseExist) return res.status(406).send({error:"The specified course was not found in our database."});
 
@@ -54,6 +50,7 @@ const create = async (noteObj)=>{
         if(error) return res.sendStatus(500);
         return res.status(201).send(result);
     });
+    
 }
 
 //uploading image name to a specific notes array of images
