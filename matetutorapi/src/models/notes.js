@@ -19,10 +19,14 @@ const NotesSchema = new Schema({
         type:String,
         maxLength:1000
     },
-    imgFiles:[String],
-    ytVideoLinks:[String],
-    googleDriveLinks:[String]
-});
+    youtubeLinks:[String],
+    googleDriveLinks:[String],
+    imgFiles:[String]
+},
+{
+    timestamps:true
+}
+);
 
 
 module.exports = mongoose.model("Notes",NotesSchema);

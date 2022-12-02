@@ -42,6 +42,10 @@ const TutorSchema = new Schema({
         maxLength:200,
         required:true
     }
-});
+},
+{
+    timestamps:true
+}
+);
 
 module.exports = mongoose.model("Tutor",TutorSchema,"Tutors");

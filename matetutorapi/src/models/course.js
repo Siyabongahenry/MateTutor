@@ -23,8 +23,15 @@ const CourseSchema = new Schema ({
         ref:"Tutor",
         required:true
     },
-    discount:Number
+    discount:Number,
+    verified:{
+        type:Boolean,
+        default:false
+    }
 
+},
+{
+    timestamps:true
 });
 
 module.exports = mongoose.model("Course",CourseSchema,"Courses");

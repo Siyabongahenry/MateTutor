@@ -2,12 +2,13 @@
 const express = require("express");
 
 const multer = require("multer");
+const router = express.Router();
 
 
 //authorize user
-const checkAuth = require("../middlewares/checkAuth.middleware");
+const authenticate = require("../middlewares/authentication.middleware");
+const authorize = require("../middlewares/authorization.middleware");
 
-const router = express.Router();
 
 const tutor_controller = require("../controllers/tutor.controller");
 
@@ -43,11 +44,23 @@ const upload = multer({
     }
 });
 
-router.post("/register",[checkAuth,upload.single("profileImg")],tutor_controller.register);
-router.post("/bank",checkAuth,tutor_controller.updateBankDetails);
-router.post("/schedule",checkAuth,tutor_controller.updateSchedule);
-router.get("/account",checkAuth,tutor_controller.getCurrentTutor);
-router.get("/courses",checkAuth,tutor_controller.getCourses);
-router.get("/course/:id",checkAuth,tutor_controller.getCourseById);
+router.post("/register",[authenticate,authorize("tutor"),upload.single("profileImg")],tutor_controller.register);
+
+router.post("/bank",[authenticate,authorize("tutor")],tutor_controller.updateBankDetails);
+
+router.get("/schedule/:id",tutor_controller.getSchedule);
+
+router.post("/schedule",[authenticate,authorize("tutor")],tutor_controller.updateSchedule);
+//update description
+router.post("/upddescription",[authenticate,authorize("tutor")],tutor_controller.updateDescription);
+
+router.get("/courses",[authenticate,authorize("tutor")],tutor_controller.getCourses);
+
+router.get("/course/:id",[authenticate,authorize("tutor")],tutor_controller.getCourseById);
+
+router.get("/",[authenticate,authorize("tutor")],tutor_controller.getCurrentTutor);
+
+//get tutor by id
+router.get("/:id",tutor_controller.getTutorById);
 
 module.exports = router;

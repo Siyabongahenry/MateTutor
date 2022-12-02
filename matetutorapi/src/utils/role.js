@@ -1,5 +1,5 @@
 const role = ({
-    manager:"manager",
+    superadmin:"superadmin",
     admin:"admin",
     tutor:"tutor",
     user:"user"

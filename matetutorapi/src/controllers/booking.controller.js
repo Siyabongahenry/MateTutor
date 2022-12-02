@@ -49,14 +49,11 @@ exports.getTuteeBookings = async (req,res)=>{
                               select:["name","ratingsPerHour"]
                         });
 
-
             if(bookings) return res.status(200).send(bookings);
 
              return res.sendStatus(404);
       }
       catch(error){
-            console.log(error);
-
             return res.sendStatus(500);
       }
 }

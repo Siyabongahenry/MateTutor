@@ -40,7 +40,10 @@ const UserSchema = new Schema(
             
         },
         blocked:{
-            status:Boolean,
+            status:{
+                type:Boolean,
+                default:false
+            },
             reason:{
                 type:String
             },
@@ -50,7 +53,10 @@ const UserSchema = new Schema(
             type:String,
             default:"SFTHHYJIKKIIRTH5EGGERTGDTGHT"
         },
-        roles:[{type:String,enum:[role.Admin,role.Tutor,role.User]}]
+        roles:[{type:String,enum:[role.admin,role.tutor,role.user]}]
+    },
+    {
+        timestamps:true
     }
 );
 

@@ -14,7 +14,6 @@ const BookingSchema = new Schema(
             ref:"Course",
             required:true
         },
-        date:Date,
         bookedDate:Date,
         startTime:String,
         duration:Number,
@@ -33,6 +32,9 @@ const BookingSchema = new Schema(
             default:false
         },
         rating:[]
+    },
+    {
+        timestamps:true
     }
 );
 module.exports = mongoose.model("Booking",BookingSchema,"Bookings");
