@@ -39,6 +39,13 @@ const UserSchema = new Schema(
             minLength:[6,"The length of the password cannot be less than 6."]
             
         },
+        description:{
+            type:String,
+            maxLength:200,
+        },
+        profileImg:{
+            type:String
+        },
         blocked:{
             status:{
                 type:Boolean,

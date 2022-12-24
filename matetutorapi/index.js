@@ -32,7 +32,7 @@ app.use("/api/rolemanager",rolemanagerRouter);
 
 app.use("/api/accountmanager",accountmanagerRouter);
 
-app.use("/api/bookingmanager",accountmanagerRouter);
+app.use("/api/bookingmanager",bookingmanagerRouter);
 
 const {API_PORT} = process.env;
 

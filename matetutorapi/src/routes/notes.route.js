@@ -13,6 +13,9 @@ router.get("/:id",notes_controller.getNotes)
 //for creating new note
 router.post("/updateorcreate",[authenticate,authorize("tutor")],notes_controller.updateOrCreate);
 
+//delete note
+router.post("/delete",[authenticate,authorize("tutor")],notes_controller.delNote);
+
 //adding image to a specific note
 router.post("/upload-image",[authenticate,authorize("tutor")],notes_controller.imageUpload);
 

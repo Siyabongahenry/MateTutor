@@ -30,8 +30,7 @@ const BookingSchema = new Schema(
         paid:{
             type:Boolean,
             default:false
-        },
-        rating:[]
+        }
     },
     {
         timestamps:true

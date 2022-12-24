@@ -7,6 +7,7 @@ exports.getBookings = async (req,res)=>{
     try
     {
         const bookings = await Booking.find({})
+        .select("bookedDate location createdAt")
         .skip(skip)
         .limit(20);
 

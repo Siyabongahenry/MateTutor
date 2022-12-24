@@ -53,6 +53,28 @@ exports.updateOrCreate = async (req,res)=>{
     
 }
 
+exports.delNote = async (req,res)=>{
+    const{_id} = req.body;
+
+    if(!_id) return res.status(400).send({error:"The note id is required."});
+
+    try
+    {
+        const noteExist = await Notes.exists({_id});
+
+        if(!noteExist) return res.status(406).send({error:"We couldn't find any note assigned to the id."});
+
+        await Notes.deleteOne({_id});
+
+        return res.sendStatus(200);
+    }
+    catch
+    {
+        return res.sendStatus(500);
+    }
+
+}
+
 //uploading image name to a specific notes array of images
 exports.imageUpload = async (req,res)=>{
 
